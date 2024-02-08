@@ -16,4 +16,11 @@ function createRows(number) {
     }
 }
 
+function clearRows() {
+    while (game.firstChild) {
+        game.removeChile(game.firstChild);
+    }
+}
+
 createRows(4);
+
