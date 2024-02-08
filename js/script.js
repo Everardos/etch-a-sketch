@@ -22,5 +22,14 @@ function clearRows() {
     }
 }
 
+function reset() {
+    number = prompt("Enter size of grid: ");
+    if (typeof number !== "number" || number > 100 || number < 0) {
+        number = prompt("Invalid input. Enter size of grid: ");
+    }
+    clearRows();
+    createRows(number);
+}
+
 createRows(4);
 
