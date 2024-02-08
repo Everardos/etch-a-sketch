@@ -1,4 +1,5 @@
 const game = document.querySelector(".etch-a-sketch");
+const resetButton = document.querySelector("#reset");
 
 function createRows(number) {
     for (let i=0; i < number; i++) {
@@ -18,14 +19,14 @@ function createRows(number) {
 
 function clearRows() {
     while (game.firstChild) {
-        game.removeChile(game.firstChild);
+        game.removeChild(game.firstChild);
     }
 }
 
 function reset() {
-    number = prompt("Enter size of grid: ");
-    if (typeof number !== "number" || number > 100 || number < 0) {
-        number = prompt("Invalid input. Enter size of grid: ");
+    let number = parseInt(prompt("Enter size of grid: "));
+    while (number > 100 || number < 2 || number === null || isNaN(number)) {
+        number = parseInt(prompt("Invalid input. Enter size of grid: "));
     }
     clearRows();
     createRows(number);
@@ -33,3 +34,4 @@ function reset() {
 
 createRows(4);
 
+resetButton.addEventListener("click", reset);
