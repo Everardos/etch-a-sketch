@@ -35,3 +35,7 @@ body {
     margin-right: -1px;
     margin-bottom: -1px;
 }
+
+.hover {
+    background-color: black;
+}
