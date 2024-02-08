@@ -16,7 +16,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
-    gap: 5px;
     padding: 5px;
 }
 
@@ -27,12 +26,12 @@ body {
     justify-content: center;
     align-items: stretch;
     flex-grow: 1;
-    gap: 5px;
 }
 
 .box {
     box-sizing: inherit;
     flex-grow: 1;
-    background-color: grey;
-    border: 1px solid black;
+    border: 1px solid grey;
+    margin-right: -1px;
+    margin-bottom: -1px;
 }
