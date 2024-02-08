@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
+    gap: 5px;
 }
 
 .row {
@@ -13,8 +14,11 @@
     justify-content: center;
     align-items: stretch;
     flex-grow: 1;
+    gap: 5px;
 }
 
 .box {
     flex-grow: 1;
+    background-color: grey;
+    border: 1px solid black;
 }
