@@ -10,7 +10,7 @@ function createRows(number) {
             const box = document.createElement("div");
             row.appendChild(box);
             box.classList.add("box");
-            box.addEventListener("mouseover", () => {
+            box.addEventListener("mouseenter", () => {
                 if (!box.style.backgroundColor) {
                     box.style.backgroundColor = randomHex();
                 } else if (!box.firstChild) {
@@ -23,6 +23,7 @@ function createRows(number) {
                     opacity += 0.1;
                     opacity = Math.round(opacity * 10)/10
                     box.firstChild.style.opacity = opacity.toString();
+
                 }
             })
         }
