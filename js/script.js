@@ -11,7 +11,7 @@ function createRows(number) {
             row.appendChild(box);
             box.classList.add("box");
             box.addEventListener("mouseover", () => {
-                box.classList.add("hover");
+                box.style.backgroundColor = randomHex();
             })
         }
     }
@@ -22,6 +22,14 @@ function clearRows() {
         game.removeChild(game.firstChild);
     }
 }
+
+function randomHex() {
+    const max = 16777217; //Number of possible colors plus 1
+    const num = Math.floor(Math.random() * max);
+    return "#" + num.toString(16);
+}
+
+
 
 function reset() {
     let number = parseInt(prompt("Enter size of grid: "));
