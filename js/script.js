@@ -11,20 +11,8 @@ function createRows(number) {
             row.appendChild(box);
             box.classList.add("box");
             box.addEventListener("mouseenter", () => {
-                if (!box.style.backgroundColor) {
-                    box.style.backgroundColor = randomHex();
-                } else if (!box.firstChild) {
-                    const alpha = document.createElement("div");
-                    box.appendChild(alpha);
-                    alpha.classList.add("darken");
-                    alpha.style.opacity = "0.1";
-                } else if (parseFloat(box.firstChild.style.opacity) < 1) {
-                    let opacity = parseFloat(box.firstChild.style.opacity);
-                    opacity += 0.1;
-                    opacity = Math.round(opacity * 10)/10
-                    box.firstChild.style.opacity = opacity.toString();
-
-                }
+                box.style.backgroundColor = getRandomHSL();
+                box.style.transitionDuration = "1s";
             })
         }
     }
@@ -36,10 +24,19 @@ function clearRows() {
     }
 }
 
-function randomHex() {
-    const max = 16777217; //Number of possible colors plus 1
-    const num = Math.floor(Math.random() * max);
-    return "#" + num.toString(16);
+function getRandomInt(max, min) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+function getRandomHSL() {
+    const hue = getRandomInt(0, 361);
+    const saturation = getRandomInt(0, 101);
+    const lightness = getRandomInt(0, 101);
+    return `hsl( ${hue}, ${saturation}%, ${lightness}%)`
+}
+
+function darkenHSL(string) {
+
 }
 
 
