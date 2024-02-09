@@ -11,7 +11,19 @@ function createRows(number) {
             row.appendChild(box);
             box.classList.add("box");
             box.addEventListener("mouseover", () => {
-                box.style.backgroundColor = randomHex();
+                if (!box.style.backgroundColor) {
+                    box.style.backgroundColor = randomHex();
+                } else if (!box.firstChild) {
+                    const alpha = document.createElement("div");
+                    box.appendChild(alpha);
+                    alpha.classList.add("darken");
+                    alpha.style.opacity = "0.1";
+                } else if (parseFloat(box.firstChild.style.opacity) < 1) {
+                    let opacity = parseFloat(box.firstChild.style.opacity);
+                    opacity += 0.1;
+                    opacity = Math.round(opacity * 10)/10
+                    box.firstChild.style.opacity = opacity.toString();
+                }
             })
         }
     }
