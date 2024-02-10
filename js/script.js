@@ -4,6 +4,7 @@ let hueSliderValue = 0;
 const game = document.querySelector(".etch-a-sketch");
 const resetButton = document.querySelector("#reset");
 const blackMode = document.querySelector("#black");
+const whiteMode = document.querySelector("#white");
 const colorfulMode = document.querySelector("#colorful");
 const selectColorMode = document.querySelector("#select-color");
 const hueSlider = document.querySelector("#hue");
@@ -55,6 +56,8 @@ function getColor() {
         return getRandomHSL();
     } else if (colorMode === "select-color") {
         return getHSL(hueSliderValue);
+    } else if (colorMode === "white") {
+        return "white";
     }
 }
 
@@ -73,6 +76,10 @@ resetButton.addEventListener("click", reset);
 
 blackMode.addEventListener("click", () => {
     colorMode = "black";
+})
+
+whiteMode.addEventListener("click", () => {
+    colorMode = "white";
 })
 
 colorfulMode.addEventListener("click", () => {
