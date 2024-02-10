@@ -1,5 +1,10 @@
+let colorMode = "black";
+
 const game = document.querySelector(".etch-a-sketch");
 const resetButton = document.querySelector("#reset");
+const blackMode = document.querySelector("#black");
+const colorfulMode = document.querySelector("#colorful");
+const selectColorMode = document.querySelector("#select-color");
 
 function createRows(number) {
     for (let i=0; i < number; i++) {
@@ -11,7 +16,7 @@ function createRows(number) {
             row.appendChild(box);
             box.classList.add("box");
             box.addEventListener("mouseenter", () => {
-                box.style.backgroundColor = getRandomHSL();
+                box.style.backgroundColor = getColor();
                 box.style.transitionDuration = "1s";
             })
         }
@@ -35,11 +40,13 @@ function getRandomHSL() {
     return `hsl( ${hue}, ${saturation}%, ${lightness}%)`
 }
 
-function darkenHSL(string) {
-
+function getColor() {
+    if (colorMode === "black") {
+        return "black";
+    } else if (colorMode === "colorful") {
+        return getRandomHSL();
+    }
 }
-
-
 
 function reset() {
     let number = parseInt(prompt("Enter size of grid: "));
@@ -53,3 +60,12 @@ function reset() {
 createRows(4);
 
 resetButton.addEventListener("click", reset);
+
+blackMode.addEventListener("click", () => {
+    colorMode = "black";
+})
+
+colorfulMode.addEventListener("click", () => {
+    colorMode = "colorful";
+})
+
