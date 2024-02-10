@@ -1,10 +1,12 @@
 let colorMode = "black";
+let hueSliderValue = 0;
 
 const game = document.querySelector(".etch-a-sketch");
 const resetButton = document.querySelector("#reset");
 const blackMode = document.querySelector("#black");
 const colorfulMode = document.querySelector("#colorful");
 const selectColorMode = document.querySelector("#select-color");
+const hueSlider = document.querySelector("#hue");
 
 function createRows(number) {
     for (let i=0; i < number; i++) {
@@ -40,11 +42,19 @@ function getRandomHSL() {
     return `hsl( ${hue}, ${saturation}%, ${lightness}%)`
 }
 
+function getHSL(hue) {
+    const saturation = getRandomInt(0, 101);
+    const lightness = getRandomInt(0, 101);
+    return `hsl( ${hue}, ${saturation}%, ${lightness}%)`
+}
+
 function getColor() {
     if (colorMode === "black") {
         return "black";
     } else if (colorMode === "colorful") {
         return getRandomHSL();
+    } else if (colorMode === "select-color") {
+        return getHSL(hueSliderValue);
     }
 }
 
@@ -69,3 +79,11 @@ colorfulMode.addEventListener("click", () => {
     colorMode = "colorful";
 })
 
+selectColorMode.addEventListener("click", () => {
+    colorMode = "select-color";
+})
+
+
+hueSlider.addEventListener("input", () => {
+    hueSliderValue = hueSlider.value;
+})
