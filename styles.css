@@ -8,6 +8,7 @@ body {
     justify-content: center;
     align-items: stretch;
     padding: 5px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 
@@ -44,16 +45,50 @@ body {
 .button-container {
     display: flex;
     justify-content: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+input[type=radio] {
+    display: none;
+    margin: 10px;
+}
+
+.radios {
+    margin-right: 10px;
+}
+
+input[type=radio] + label {
+    display: inline-block;
+    padding: 10px;
+    margin-left: -4px;
+    margin-right: -4px;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    background-color: #bbb;
+}
+
+#black + label {
+    border-radius: 10px 0px 0px 10px;
+}
+
+#select-color + label {
+    border-radius: 0px 10px 10px 0px;
+}
+
+input[type=radio]:checked + label {
+    background-color: #888;
 }
 
 #reset {
     background-color: #3030ff;
     color: white;
     font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     border: none;
     border-radius: 10px;
     padding: 10px;
-    margin: 20px;
     width: 150px;
 }
